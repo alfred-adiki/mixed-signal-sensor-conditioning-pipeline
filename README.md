@@ -33,7 +33,7 @@ An end-to-end hardware-software co-design project demonstrating analog signal co
 * **DC Level Shifting:** Biased the bipolar AC sensor signal into the positive domain so the waveform stays strictly within safe microcontroller ADC rail limits (preventing pin damage and negative-half clipping).
 * **Impedance Isolation:** Implemented a single-supply **Operational Amplifier Voltage Follower** (unity-gain buffer) between the RC filter and ADC input. High input impedance prevents loading the passive filter network, while low output impedance rapidly charges the MCU's internal sample-and-hold capacitor.
 
-*(Add screenshot: `![LTspice Simulation](1_analog_ltspice/ltspice_waveform.png)`)*
+![LTspice Simulation](1_analog_ltspice/ltspice_waveform.png)
 
 ---
 
@@ -42,7 +42,7 @@ Built an automated verification script using `NumPy`, `Pandas`, and `Matplotlib`
 * **12-Bit Quantization Modeling:** Mapped continuous analog voltages onto $2^{12} = 4096$ discrete steps ($1\text{ LSB} \approx 1.22\text{ mV}$ at $5\text{V}$ / $0.81\text{ mV}$ at $3.3\text{V}$) and verified the theoretical $\pm 0.5\text{ LSB}$ quantization noise floor.
 * **Filter Roll-Off Compensation:** Identified a **~4.6% passband attenuation** at $50\text{ Hz}$ caused by the $159\text{ Hz}$ RC filter roll-off. Verified a digital gain calibration factor ($G = 1.0482$) in Python to restore true sensor amplitude.
 
-*(Add screenshot: `![Python Dashboard](2_python_verification/dashboard_output.png)`)*
+![Python Dashboard](2_python_verification/dashboard_output.png)
 
 ---
 
@@ -64,7 +64,7 @@ Developed and tested non-blocking firmware targeting the **STM32 Nucleo-C031C6 (
 | `PAUSE` / `RESUME` | Toggles live telemetry streaming without halting ADC sampling | `PAUSE` |
 | `RESET` | Restores default factory calibration constants | `RESET` |
 
-*(Add screenshot: `![Wokwi STM32 Demo](3_stm32_firmware/wokwi_demo.png)`)*
+[Wokwi STM32 Demo](3_stm32_firmware/wokwi_demo.png)
 
 ---
 
